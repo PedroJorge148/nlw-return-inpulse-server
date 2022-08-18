@@ -14,7 +14,7 @@ describe('Submit feedback', () => {
       await expect(submitFeedback.execute({
         type: 'BUG',
         comment: 'example comment',
-        screenshoot: 'data:image/png;base64, asnfiudhfiur',
+        screenshot: 'data:image/png;base64asnfiudhfiur',
       })).resolves.not.toThrow();
 
       expect(createFeedbackSpy).toHaveBeenCalled();
@@ -26,7 +26,7 @@ describe('Submit feedback', () => {
       await expect(submitFeedback.execute({
         type: '',
         comment: 'example comment',
-        screenshoot: 'data:image/png;base64, asnfiudhfiur',
+        screenshot: 'data:image/png;base64, asnfiudhfiur',
       })).rejects.toThrow();
     });
 
@@ -35,7 +35,7 @@ describe('Submit feedback', () => {
       await expect(submitFeedback.execute({
         type: 'BUG',
         comment: '',
-        screenshoot: 'data:image/png;base64, asnfiudhfiur',
+        screenshot: 'data:image/png;base64, asnfiudhfiur',
       })).rejects.toThrow();
     });
 
@@ -44,7 +44,7 @@ describe('Submit feedback', () => {
       await expect(submitFeedback.execute({
         type: 'BUG',
         comment: 'example comment',
-        screenshoot: '123',
+        screenshot: '123',
       })).rejects.toThrow();
     });
 
